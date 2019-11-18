@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Registration";
+}
+
+<form action="../Registration/Summary" method="post">
+    <label>UserName: </label>
+    <input type="text" name="UserName"/> <br />
+    <label>Email: </label>
+    <input type="text" name="Email"/> <br />
+    <label>Password: </label>
+    <input type="text" name="Pass" id="myPass"/>
+    <label>Show Password </label>
+    <input type="checkbox" name="check" onclick="hidePass()" checked>
+    <label>Regular: Y</label>
+    <input type="radio" name="Regular" value="true"/>
+    <label>N</label>
+    <input type="radio" name="Regular" value="false"/>
+    <label>Member: </label>
+    <select name="Member">
+        <option value="non-member">Non-Member</option>
+        <option value="member">Member</option>
+        <option value="owner">Owner</option>
+        <option value="ghost">Ghost</option>
+    </select>
+
+    <input type="submit" value="Submit"/>
+    @Html.ValidationSummary()
+</form>

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lab_20_Coffee_Shop_Part_3.Models
 {
     public class User
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
         [StringLength(30, MinimumLength = 5)]
         public string UserName { get; set; }

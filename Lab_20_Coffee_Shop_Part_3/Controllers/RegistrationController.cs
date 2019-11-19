@@ -37,6 +37,7 @@ namespace Lab_20_Coffee_Shop_Part_3.Controllers
         {
             PopulateFromSession();
             users.Add(user);
+            //_context.Users.Add(user);
             HttpContext.Session.SetString("UserListSession", JsonConvert.SerializeObject(users));
             return RedirectToAction("Index");
         }

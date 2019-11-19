@@ -2,13 +2,42 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "ViewUser";
+    ViewData["Title"] = "User";
 }
 
 @model User
 
-<p>Here is your data.</p>
-<p>Name: @Model.UserName</p>
-<p>Email: @Model.Email</p>
-<p>Regular: @Model.Regular</p>
-<p>Member: @Model.Member</p>
+@if (Model != null)
+{
+    if (Model.Member == "Fail")
+    {
+        <form action="../User/Login" method="post">
+            <input type="text" name="UserName"/>
+            <input type="password" name="Pass"/>
+
+            <input type="submit" name="Log In"/>
+        </form>
+        <p>Invalid Login</p>
+    }
+    else
+    {
+        <p>Here is your data.</p>
+        <p>Name: @Model.UserName</p>
+        <p>Email: @Model.Email</p>
+        <p>Regular: @Model.Regular</p>
+        <p>Member: @Model.Member</p>
+
+        <form action="../User/Logout" method="post">
+            <input type="submit" value="Log Out"/>
+        </form>
+    }
+}
+else
+{
+    <form action="../User/Login" method="post">
+        <input type="text" name="UserName"/>
+        <input type="password" name="Pass"/>
+
+        <input type="submit" name="Log In"/>
+    </form>
+}

@@ -11,12 +11,12 @@ namespace Lab_20_Coffee_Shop_Part_3.Controllers
 {
     public class ShopController : Controller
     {
-        private readonly UserDbContext _context;
+        //private readonly UserDbContext _context;
 
-        public ShopController(UserDbContext context)
-        {
-            _context = context;
-        }
+        //public ShopController(UserDbContext context)
+        //{
+        //    _context = context;
+        //}
         // GET: /<controller>/
         public IActionResult Index()
         {

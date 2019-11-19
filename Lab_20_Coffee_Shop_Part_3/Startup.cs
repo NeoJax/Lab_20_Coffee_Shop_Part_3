@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Lab_18_Coffee_Shop_Part_1
+namespace Lab_20_Coffee_Shop_Part_3
 {
     public class Startup
     {
@@ -35,7 +35,6 @@ namespace Lab_18_Coffee_Shop_Part_1
             services.AddSession(
                 options =>
                 {
-                    options.IdleTimeout = TimeSpan.FromSeconds(10);
                     options.Cookie.HttpOnly = true;
                     options.Cookie.IsEssential = true;
                 }

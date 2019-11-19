@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
 using Lab_20_Coffee_Shop_Part_3.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ namespace Lab_20_Coffee_Shop_Part_3.Controllers
     public class RegistrationController : Controller
     {
         public List<User> users = new List<User>();
+        string filePath = @"../Models/Users.txt";
         //private readonly UserDbContext _context;
 
         //public RegistrationController(UserDbContext context)
@@ -37,6 +39,9 @@ namespace Lab_20_Coffee_Shop_Part_3.Controllers
         {
             PopulateFromSession();
             users.Add(user);
+            //StreamWriter writer = new StreamWriter(filePath, true);
+            //writer.WriteLine(user.UserName + "|" + user.Email + "|" + user.Pass + "|" + user.Regular + "|" + user.Member);
+            //writer.Close();
             //_context.Users.Add(user);
             HttpContext.Session.SetString("UserListSession", JsonConvert.SerializeObject(users));
             return RedirectToAction("Index");
